@@ -6,7 +6,8 @@
 
 <header class="h-[80px] border-b">
 	<div class="w-[70%] mx-auto flex justify-between h-full items-center">
-		<a href="/" class="font-bold text-[25px]">
+		<a href="/" class="font-bold text-[25px] flex items-center gap-2">
+			<img src="/logo.png" alt="" class="w-[55px] h-full">
 			<h1>LGTMagic</h1>
 		</a>
 		<ModeToggle />
