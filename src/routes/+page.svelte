@@ -29,7 +29,7 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="LGTMagic" />
 	<meta name="twitter:description" content="LGTM画像を掲載するサイト" />
-	<meta name="twitter:image" content="https://lgtmagic.vercel.app/ogp.png" /> -->
+	<meta name="twitter:image" content="https://lgtmagic.vercel.app/ogp.png" /> 
 </svelte:head>
 
 <div class="flex justify-center min-h-[calc(100vh-80px-60px)] items-center">
