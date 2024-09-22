@@ -1,7 +1,15 @@
 <script lang="ts">
+	import type { LGTM } from '$lib/microcms/client';
 	import type { PageData } from './$types';
 	export let data: PageData;
-	const { contents } = data;
+	let { contents } = data;
+
+	function getRandomElements(arr: LGTM[], count: number) {
+		const shuffled = arr.sort(() => 0.5 - Math.random());
+		return shuffled.slice(0, count);
+	}
+
+    contents = getRandomElements(contents, 8);
 
 	const copyToClipBoard = (imageUrl: string) => {
 		const copyText = `![](${imageUrl})`;
@@ -20,7 +28,7 @@
 <svelte:head>
 	<title>LGTMagic</title>
 	<meta name="description" content="LGTM画像を掲載するサイト" />
-	<meta property="og:url" content="https://lgtmagic.vercel.app" /> 
+	<meta property="og:url" content="https://lgtmagic.vercel.app" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="LGTMagic" />
 	<meta property="og:description" content="LGTM画像を掲載するサイト" />
@@ -29,7 +37,7 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="LGTMagic" />
 	<meta name="twitter:description" content="LGTM画像を掲載するサイト" />
-	<meta name="twitter:image" content="https://lgtmagic.vercel.app/ogp.png" /> 
+	<meta name="twitter:image" content="https://lgtmagic.vercel.app/ogp.png" />
 </svelte:head>
 
 <div class="flex justify-center min-h-[calc(100vh-80px-60px)] items-center">

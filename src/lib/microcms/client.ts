@@ -14,34 +14,7 @@ export type LGTM = {
 
 //APIの呼び出し
 export const getList = async (queries?: MicroCMSQueries) => {
-    // まず全体のデータ件数を取得
-    const totalData = await client.getList<LGTM>({
-        endpoint: "lgtms",
-        queries: {
-            limit: 0,  // データ本体は不要なのでlimitを0に設定
-        },
-    });
-
-    // データ件数が7件未満なら全件取得
-    const totalCount = totalData.totalCount;
-    if (totalCount <= 8) {
-        return await client.getList<LGTM>({
-            endpoint: "lgtms",
-            queries,
-        });
-    }
-
-    // ランダムなオフセットを計算して7件取得
-    const randomOffset = Math.floor(Math.random() * (totalCount - 7));
-    const data = await client.getList<LGTM>({
-        endpoint: "lgtms",
-        queries: {
-            limit: 8,
-            offset: randomOffset,
-        },
-    });
-
-    return data;
+    return await client.getList<LGTM>({ endpoint: "lgtms", queries });
 };
 
 
